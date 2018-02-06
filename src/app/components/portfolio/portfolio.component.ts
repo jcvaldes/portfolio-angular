@@ -7,12 +7,13 @@ import { ProductosService } from '../../services/productos.service';
   styles: []
 })
 export class PortfolioComponent {
-
+  // tslint:disable-next-line:no-inferrable-types
+  loading: boolean = true;
   productos: any[] = [];
   constructor(private _ps: ProductosService) {
     _ps.loadProductos().subscribe(data => {
       this.productos = data;
-      console.log(data);
+      this.loading = false;
     });
   }
 }

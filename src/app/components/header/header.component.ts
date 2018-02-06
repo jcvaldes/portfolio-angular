@@ -13,4 +13,7 @@ export class HeaderComponent {
       this.info = data;
     });
   }
+  search(termino: string) {
+    console.log(termino);
+  }
 }
