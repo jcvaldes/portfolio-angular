@@ -26,7 +26,6 @@ export class ProductosService {
 
       let response =  await this.http.get('https://portfolio-6ad1d.firebaseio.com/productos_idx.json')
           .toPromise();
-          debugger
       this.productos = response.json();
       return response.json();
   }
