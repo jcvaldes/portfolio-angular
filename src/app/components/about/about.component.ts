@@ -8,6 +8,7 @@ import { InformacionService } from '../../services/informacion.service';
 })
 export class AboutComponent implements OnInit {
   equipo: any[] = [];
+  loading: boolean = true;
   constructor( public _is: InformacionService) {
 
   }
@@ -15,6 +16,7 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
     this._is.getAbout().subscribe(data => {
       this.equipo = data;
+      this.loading = false;
     });
   }
 

@@ -9,13 +9,15 @@ import { ProductosService } from '../../services/productos.service';
 })
 export class ProductoComponent  {
   producto: any = {};
+  loading: boolean = true;
   cod: string;
   constructor( private route: ActivatedRoute, private _ps: ProductosService) {
     route.params.subscribe( params => {
       this.cod = params['id'];
       this._ps.loadProducto(params['id']).subscribe(data => {
         this.producto = data;
-        console.log(this.producto);
+        this.loading = false;
+        // console.log(this.producto);
       });
     });
   }
