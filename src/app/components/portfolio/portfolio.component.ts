@@ -11,9 +11,10 @@ export class PortfolioComponent {
   loading: boolean = true;
   productos: any[] = [];
   constructor(private _ps: ProductosService) {
-    _ps.loadProductos().subscribe(data => {
-      this.productos = data;
-      this.loading = false;
-    });
+    debugger
+      _ps.loadProductos().then(data => {
+        this.productos = data;
+        this.loading = false;
+      });
   }
 }
